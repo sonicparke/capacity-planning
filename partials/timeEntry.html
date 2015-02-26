@@ -1,0 +1,9 @@
+<div class="input-group col-md-6">
+    <input  class="{{inputClass}}" ng-click="onInputClick()" ng-change="onChange(index, item)" type="text" placeholder="{{inputPlaceholder}}" ng-model="item" />
+    <span class="input-group-btn">
+        <button class="btn {{buttonClass}}" ng-click="onButtonClick()" ng-disabled="disabled">
+            <i class="fa {{icon}}" ng-class="{'fa-spinner fa-spin': updating}"></i>
+            {{ updating && activeText || text  }}
+        </button>
+    </span>
+</div>

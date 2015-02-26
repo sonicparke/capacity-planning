@@ -1,0 +1,41 @@
+<div class="modal-header clearfix">
+    <h3 class="pull-left"><i class="fa fa-clock-o"></i> {{workcenter}} Job Hours for {{jobNumber}}</h3>
+</div>
+<form class="form-horizontal">
+    <div class="modal-body clearfix">
+        <!-- <button ng-click="GetOriginalGroup()" type="button">Get Original Group</button> -->
+        <div class="form-group col-md-12 panel pad-bottom-10 margin-bottom-10">
+            <label class="col-md-5 control-label " for="CompletedDate">Completed Date</label>
+            <div class="col-md-4">
+                <span class="input-group clearfix" ng-controller="DatePickerCtrl">
+                    <input type="text" class="form-control input-small" id="CompletedDate" datepicker-popup="{{format}}" ng-model="data.CompletedDate" is-open="opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12" >
+            <ul class="list-unstyled" ng-repeat="item in hours">
+                <li>
+                    <div class="form-group col-md-12">
+                        <label class="col-md-5 control-label " for="{{item.Date}}">{{item.FullDate}}</label>
+                        <div class="col-md-3">
+                            <input class="input-small form-control" type="text" ng-model="item.Hours" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <div class="cold-md-12 pad-top-5 pad-bottom-10">
+            <button-ui class="btn btn-primary" show-button="true" text="Update" button-disabled="disabled" active-text="Updating" click-fn="UpdateHours()" icon="fa fa-upload"></button-ui>
+            <button type="button" ng-click="cancel()" class="btn btn-danger" >Close</button>
+            <button-ui class="btn btn-warning" show-button="true" text="Reset To Default" button-disabled="disabled" active-text="Working" click-fn="ResetToDefault()" icon="fa fa-refresh"></button-ui>
+        </div>
+        <alert ng-repeat="alert in saveAlerts" type="alert.type" autoclose="alert.autoclose" autoclosetime="alert.autoclosetime" close="closeSaveAlert(saveAlerts, $index)">{{alert.msg}}</alert>
+    </div>
+</form>

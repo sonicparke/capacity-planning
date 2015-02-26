@@ -1,0 +1,65 @@
+<div class="container " ng-init="InitPage()">
+    <div class="row">
+        <!-- <div class="display-inline savingLoader" ng-show="saving"><i class="fa fa-spinner fa fa-spin" ></i> Saving</div> -->
+        <div class="col-md-12" >
+            <h4>{{PageSubTitle}}</h4>
+
+            <div class="row margin-bottom-10">
+                <form class="form-inline col-md-8 ">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="input-group" ng-controller="DatePickerCtrl">
+                                <input type="text" class="form-control input-small" id="StartDate" datepicker-popup="{{format}}" ng-model="searchParams.sStartDate" is-open="opened" min-date="minDate" max-date="maxDate" ng-blur="SetEndDate()" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </span>
+                        </div>
+
+                        <div class="col-md-3">
+                            <span class="input-group" ng-controller="DatePickerCtrl">
+                                <input type="text" class="form-control input-small" id="StartDate" datepicker-popup="{{format}}" ng-model="searchParams.sEndDate" is-open="opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </span>
+                        </div>
+
+                        <!-- <div class="col-md-4 search-input ">
+                            <input focus class="form-control" type="text" ng-model="searchParams.selectedJob" ng-change="GetFolders(searchParams.selectedJob)" typeahead-on-select="OnSelect(searchParams.selectedJob)" typeahead-min-length="3" typeahead="folder as folder.FolderName for folder in folders | filter:$viewValue" placeholder="Enter Job" />
+                            <i class="fa fa-times clickable" ng-class="{'fa-spinner fa-spin': jobListLoading}" ng-click="ClearJob()"></i>
+                        </div> -->
+
+                        <button-ui button-class="btn-primary" show-button="true" text="Search" active-text="Searching" click-fn="GetGridData(searchParams)" icon="fa fa-search"></button-ui>
+
+
+                    </div>
+                </form>
+
+                <div ng-show="showCSVExport" class="display-inlineBlock pull-right pad-right-row">
+                    <a class="btn btn-primary btn-medium" href="/capacityplanning/export/{{UserID}}-Export.csv" target="_blank" download="Export.csv"><i class="fa fa-share"></i> Export CSV</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <alert ng-repeat="alert in alerts" type="alert.type" autoclose="alert.autoclose" autoclosetime="alert.autoclosetime" close="closeAlert($index)">{{alert.msg}}</alert>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="col-md-12" ng-show="showGrid" >
+            <div class="grid clearfix">
+                <div ng-grid="GridItems" class=""></div>
+            </div>
+        </div>
+
+
+    <footer>
+        <div class="row"  ng-show="showGrid">
+            <ul class="list-unstyled list-inline legend col-md-12">
+                <li ng-repeat="item in LegendItems" class="label {{item.cssclass}}"><i class="fa fa-tag"></i> {{item.title}}</li>
+            </ul>
+        </div>
+    </footer>

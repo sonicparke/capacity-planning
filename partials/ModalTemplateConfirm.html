@@ -1,0 +1,17 @@
+<div class="modal-header modal-danger clearfix">
+    <h3 class="pull-left"><i class="fa fa-exclamation-triangle"></i> Delete?</h3>
+</div>
+<form class="form-horizontal">
+    <div class="modal-body clearfix " ng-class="{ 'datepickerOnly' : DatepickerOpened }">
+        <p>{{confirmMessage}} {{jobNo}}</p>
+        <p><strong>This is permanent and it will be gone forever.</strong></p>
+    </div>
+    <div class="modal-footer">
+
+        <alert ng-repeat="alert in alerts" type="alert.type" autoclose="alert.autoclose" autoclosetime="alert.autoclosetime" close="closeAlert(alerts, $index)">{{alert.msg}}</alert>
+
+        <button type="button" ng-click="Delete(true)" class="btn btn-danger" ><i class="fa fa-check"></i> Yes, Delete</button>
+        <button type="button" ng-click="Delete(false)" class="btn btn-default" ><i class="fa fa-times"></i> No</button>
+
+    </div>
+</form>

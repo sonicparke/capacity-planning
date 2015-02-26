@@ -1,0 +1,11 @@
+<div class="container" ng-init="InitPage()" >
+
+	<alert ng-repeat="alert in JobSearchErrors" type="alert.type" autoclose="alert.autoclose" autoclosetime="alert.autoclosetime" close="closeAlert(JobSearchErrors, $index)">{{alert.msg}}</alert>
+
+     <h4>{{PageSubTitle}}</h4>
+
+    <ul class="list-unstyled list-inline">
+        <li><a class="btn btn-primary" ui-sref="jobview"><i class="fa fa-bar-chart-o "></i> Job View</a></li>
+        <li><a class="btn btn-primary" ui-sref="loadbalancing"><i class="fa fa-exchange"></i> Load Balancing</a></li>
+    </ul>
+</div>

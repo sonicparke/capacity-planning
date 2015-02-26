@@ -1,0 +1,657 @@
+/* Lists */
+.section-title {
+    font-family: 'OpenSansLight';
+    font-size: 18px;
+    font-weight: normal;
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+.filter-labels {
+    margin-left: 15px;
+}
+
+.filter-labels button {
+    margin-right: 5px;
+    margin-top: 15px;
+}
+
+.filter-labels button.active {
+    background-color: #ff0000;
+}
+
+.icon-offset {
+    padding-left: 25px;
+}
+
+.icon-offset.row {
+    margin-left: 0;
+}
+
+.heading .badge {
+    font-size: inherit;
+}
+
+.selectedJob {
+    font-weight: bold;
+    background-color: #eff8ff;
+    border-color: #66afe9;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input i {
+    position: absolute;
+    z-index: 1000;
+    top: 9px;
+    right: 20px;
+    font-size: 16px;
+    color: #c9c9c9;
+}
+
+.search-input i:hover {
+    color: #999;
+}
+
+.fa-question-circle {
+    color: #428bca;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    z-index: 1000;
+    top: 9px;
+    right: 10px;
+    font-size: 16px;
+    color: #93D594;
+}
+
+form .input-group[class*=col-] {
+    float: left;
+}
+
+.autosave-icon.fa-spin {
+    color: #c9c9c9;
+}
+
+/*.autosave-icon {
+    position: relative;
+}*/
+
+i.autosave-icon {
+/*    position: absolute;
+    z-index: 1000;
+    top: 9px;
+    right: 10px;*/
+    font-size: 16px;
+    color: #93D594;
+}
+
+.autosave-icon .fa-spin {
+    color: #c9c9c9;
+}
+
+/* Saving Loader for Edit functions without button-ui*/
+.savingLoader {
+    font-family: 'OpenSansLight';
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    width: 56px;
+    margin-left: -54px;
+}
+
+
+
+/* Bootstrap Overrides */
+.col-md-half {
+    width: 4.333333333333332%;
+}
+.well .heading {
+    margin-top: 0;
+}
+
+li {
+    min-height: 23px;
+}
+
+.list-inline .col-md-3 {
+    width: 21%;
+}
+
+.list-inline li{ /* Fixes height issue of inline list elements that are contained in .list-with-labels list */
+    height: auto;
+}
+
+li.well {
+    padding: 10px 19px;
+}
+
+li.well>div {
+    line-height: 33px;
+}
+
+.well.success {
+color: #468847;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+}
+
+.btn-xs {
+    font-size: 13px;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #555;
+}
+
+.btn-dark:hover {
+    color: #c9c9c9;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.well .form-group {
+    margin-bottom: 0px;
+}
+
+.form-inline .search-input .form-control {
+    width: 100%;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #468847;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-full { /* Makes full width alert */
+    border-radius: 0;
+    text-align: center;
+}
+
+.alert {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alert-pad-shift {
+    padding: 8px 14px;
+}
+
+.dropdown-menu.datepicker {
+    width: 330px;
+    height: 300px;
+    padding: 10px;
+}
+
+.datepicker .calendar {
+    height: 218px;
+}
+
+.datepicker .divider {
+    display: none;
+}
+
+.datepicker .buttons {
+    position: absolute;
+    bottom: 28px;
+    width: 305px;
+}
+
+
+/* Font Awesome Overrides */
+.fa-pencil:hover {
+    color: #3a87ad;
+}
+
+.appbar .fa-pencil:hover {
+    color: inherit;
+}
+
+.fa-times-circle:hover {
+    color: #ff0000;
+}
+
+.reorder-list-icon {
+    position: relative;
+    top: -1px;
+    margin-left: -5px;
+}
+
+.reorder-list-icon:hover {
+    color: #5bb85d;
+}
+
+
+
+/* App Specific Misc */
+.ng-invalid .formRequire {
+    border-color: #e9322d;
+    -webkit-box-shadow: 0 0 6px #f8b9b7;
+    -moz-box-shadow: 0 0 6px #f8b9b7;
+    box-shadow: 0 0 6px #f8b9b7;
+}
+
+.validation-error {
+    color: #ff0000;
+}
+
+.alert.selectedPrinter {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    font-size: 12px;
+}
+
+.editing {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    border-radius: 5px;
+}
+
+.editingListItem {
+    /*color: #c9c9c9;*/
+}
+
+
+div[ng-show="loggedOut"] p {
+    line-height: 35px;
+    margin: 0 15px -16px 0;
+    color: #d2322d;
+    font-weight: bold;
+}
+
+.ngCellText, .ngHeaderText {
+    font-size: 11px;
+    line-height: 12px;
+    height: 19px;
+}
+
+.ngGrid {
+    border: 1px solid #d4d4d4;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+}
+
+.ngHeaderContainer {
+    /*color: #ffffff;
+    background: #1778bd;*/
+    color: #000;
+    background: #fff;
+}
+
+.ngRow.odd, .ngRow.even {
+    /*background-color: transparent;*/
+}
+
+.ngHeaderContainer .ngVerticalBarVisible {
+    /*background-color: #03B0D1;*/
+}
+
+.ngFooterPanel {
+    height: 0 !important;
+    background-color: #ffffff;
+    border-top: none;
+}
+
+.new-job-alert {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+i.new-job-alert {
+position: absolute;
+top: 6px;
+right: 25px;
+font-size: 24px;
+}
+
+
+/*** GRID STYLES ***/
+.ngViewport {
+    min-height: 600px;
+}
+
+.ngCellText, .ngHeaderText {
+    font-size: 11px;
+    line-height: 12px;
+    height: 19px;
+}
+
+.ngGrid {
+    border: 1px solid #d4d4d4;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+}
+
+.ngHeaderContainer {
+    /*color: #ffffff;
+    background: #1778bd;*/
+    color: #000;
+    background: #fff;
+}
+
+.ngRow.odd, .ngRow.even {
+    /*background-color: transparent;*/
+}
+
+.ngHeaderContainer .ngVerticalBarVisible {
+    /*background-color: #03B0D1;*/
+}
+
+.ngFooterPanel {
+    height: 0 !important;
+    background-color: #ffffff;
+    border-top: none;
+}
+
+footer .row {
+margin-left: 0;
+margin-right: 0;
+}
+
+.display-inlineBlock {
+    display: inline-block;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.rotate {
+
+    position: absolute;
+    bottom: 40px;
+    left: -26px;
+
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+
+    /* IE */
+    -ms-transform: rotate(-90deg);
+
+    /* Opera */
+    -o-transform: rotate(-90deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+    transform: rotate(-90deg);
+}
+
+.rotate .ngHeaderText {
+    width: 92px !important;
+}
+
+.highlight {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 1px;
+    margin: 1px 1px 1px 1px;
+    /*border: 3px solid rgba(81, 203, 238, 1);*/
+    border: 3px solid #444;
+    background-color: #c9c9c9;
+}
+
+.highlight > div {
+    padding: 0 5px;
+    height: 10px;
+}
+
+
+
+/*** GRID CELL COLORS ***/
+.color-early, .color-job1 {
+    background-color: #83BDFC;
+}
+
+.color-latedone, .color-job2 {
+    background-color: #FFF339;
+}
+
+.color-ontime {
+    background-color: #9DFF7A;
+    overflow: visible;
+}
+
+.color-ip {
+    background-color: #D0E585;
+}
+
+.color-ck {
+    background-color: #FC9F2D;
+}
+
+.color-cu {
+    background-color: #7DF2D7;
+}
+
+.color-i {
+    background-color: #ADA1BC;
+}
+
+.color-iss {
+    background-color: #F8B499;
+}
+
+.color-ns {
+    color: #ffffff;
+    background-color: #4251AB;
+}
+
+.color-rtc {
+    background-color: #A9C92A;
+}
+
+.color-rcu {
+    background-color: #8599E5;
+}
+
+.color-rti {
+    background-color: #2AC9BA;
+}
+
+.color-due {
+    /*color: #ffffff;*/
+    background-color: #ff00ba;
+}
+
+.color-sytelinedue {
+    background-color: #ffbfbf;
+}
+
+
+.color-absence {
+    background-color: #c9c9c9;
+}
+
+.color-notonwip {
+    color: #ffffff;
+    background-color: #444444;
+}
+
+.color-weekend {
+    color: #ffffff;
+    background-color: #8B8B8B;
+}
+
+.color-late, .color-conflict {
+    color: #ffffff;
+    background-color: #F1270C;
+}
+
+.color-lbissued {
+    color: #ffffff;
+    background-color: #00C410;
+}
+
+/* This must be last color */
+.color-routechange {
+    background-color: #feb339;
+}
+
+
+
+/*** IN CELL "BUTTONS" ***/
+.removeButton {
+    color: #FFFFFF;
+    background-color: #555555;
+    margin: -5px -4px 0 0;
+    line-height: 19px;
+    padding: 0 5px;
+}
+
+.removeButton:hover {
+    color: #F1270C;
+    background-color: #FFB0B0;
+}
+
+
+/*** LEGEND ***/
+
+.legend {
+    font-size: 85%;
+    font-weight: bold;
+}
+
+.legend li {
+    margin-left: 10px;
+}
+
+.legend .label {
+    color: #000000;
+    text-shadow: none;
+}
+
+.legend .label.color-ns, .legend .label.color-late, .legend .label.color-notonwip, .legend .label.color-conflict, .legend .label.color-due, .legend .label.color-lbissued   {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.grid .row [class*="col-md-"] {
+    margin-left: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+div[ng-show="showGrid"] .row {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.grid .job1 {
+    background-color: #f3f3f3;
+}
+
+.grid .job2 {
+    background-color: #ffffff;
+}
+
+.pad-right-row {
+    padding-right: 2%;
+}
+
+.no-top-margin {
+    margin-top: 0;
+}
+
+.modal-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    border-radius: 5px 5px 0 0;
+}
+
+.modal-primary {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    border-radius: 5px 5px 0 0;
+}
+
+.modal-header h1 {
+    margin-top: 10px;
+}
+
+.modal-body {
+    padding-bottom: 15px;
+    /*max-height: 400px;*/
+    /*overflow: auto;*/
+}
+
+.modal-footer {
+    margin-top: 0;
+}
+
+.datepickerOnly {
+    min-height: 350px;
+}
+
+.form-horizontal .form-group {
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.form-horizontal .control-label.left {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+table {
+    outline: none;
+}
+
+.panel:last-child {
+background-color: transparent;
+border: none;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
+.legend.list-inline>li {
+    display: inline;
+}
+
+.list-tight {
+    margin: 10px 0;
+}
+
+.list-tight li {
+    line-height: 20px;
+}
+
+.list-tight [class*="col"] {
+    padding: 0;
+}
+
+.alert>ul.list-tight {
+    margin-bottom: 10px;
+}

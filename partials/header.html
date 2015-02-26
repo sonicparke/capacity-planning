@@ -1,0 +1,19 @@
+<header class="appbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="col-md-4 col-xs-12 no-pad-left">
+                    <img class="logo pull-left" src="images/axc-logo.png" />
+                    <h1 class="title">{{PageTitle}}</h1>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <ul class="nav nav-horizontal pull-right">
+                        <li><a  ui-sref="jobview"><i class="fa fa-bar-chart-o "></i> Job View</a></li>
+                        <li><a  ui-sref="loadbalancing"><i class="fa fa-exchange"></i> Load Balancing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-danger alert-full" ng-show="ShowDBType" ng-cloak><i class="fa fa-thumbs-o-up"></i> {{DBType}}</div>
+</header>

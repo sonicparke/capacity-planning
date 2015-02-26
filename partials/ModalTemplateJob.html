@@ -1,0 +1,153 @@
+<div class="modal-header clearfix" ng-init="InitModal()">
+    <h3 class="pull-left"><i class="fa fa-user"></i> {{thisRow.entity.items[0].value}}</h3>
+    <span class="label label-default pull-right">{{selectedDate}}</span>
+</div>
+<form class="form-horizontal">
+    <div class="modal-body clearfix " ng-class="{ 'datepickerOnly' : DatepickerOpened }">
+
+        <div class="col-md-12" >
+            <ul class="list-unstyled">
+              <li ng-repeat="item in thisRow.entity.items[cellIndex].jobs" class="pad-top-20 " ng-if="!item.issued">
+                <div class="form-group" ng-init="JobRerouteCheck(item)">
+
+                    <div class="control-label col-md-4">
+                        <button-ui button-class="btn-dark btn-xs col-md-2" show-button="{{item.notonwip}}" text="" active-text="" click-fn="RemoveAssignment(thisRow, $index)" icon=" fa-times"></button-ui>
+                        <h5 class="control-label no-top-margin">{{item.job}} <label class="label label-primary">{{item.status}}</label></h5>
+                    </div>
+                    <div class="col-md-8 alert alert-warning clearfix alert-pad-shift" ng-if="item.jobreroutecheckflag">
+                        <h4>{{RouteChangedTitle}}</h4>
+                        <ul class="list-unstyled list-tight">
+                            <li>
+                                <span class="col-md-6">
+                                    <label class="label label-default ">{{prevstartdatelabel}}</label>
+                                    <small class=""> {{item.prevstartdate}} </small>
+                                </span>
+                                <span class="col-md-6">
+                                    <label class="label label-default ">{{prevduedatelabel}}</label>
+                                    <small class=""> {{item.prevduedate}}</small>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="col-md-6">
+                                    <label class="label label-warning ">{{newstartdatelabel}}</label>
+                                    <small class=""> {{item.routedstartdate}} </small>
+                                </span>
+                                <span class="col-md-6">
+                                    <label class="label label-warning ">{{newduedatelabel}}</label>
+                                    <small class=""> {{item.routedduedate}}</small>
+                                </span>
+                            </li>
+                        </ul>
+                        <button-ui button-class="btn-warning" text="{{ButtonOneText}}" show-button="true" active-text="Updating" click-fn="AcknowledgeReRoute($index, item, true)" icon=" fa-check"></button-ui>
+                        <span ng-show="ShowButtonTwo">
+                        <button-ui button-class="btn-warning" text="{{ButtonTwoText}}" how-button="true" active-text="Updating" click-fn="AcknowledgeReRoute($index, item, false)" icon=" fa-ban-circle"></button-ui>
+                        </span>
+
+                    </div>
+
+
+<!-- THIS ONE WORKS -->
+
+<!-- <div class="form-group col-md-12 panel pad-bottom-10 margin-bottom-10">
+    <label class="col-md-5 control-label " for="CompletedDate">Completed Date</label>
+    <div class="col-md-4">
+        <span class="input-group clearfix" ng-controller="DatePickerCtrl">
+            <input type="text" class="form-control input-small" id="CompletedDate" datepicker-popup="{{format}}" ng-model="data.CompletedDate" is-open="opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+            </span>
+        </span>
+    </div>
+</div> -->
+
+                    <div class="col-md-8"  ng-if="!item.jobrerouted">
+                        <div class="" ng-hide="showEditHours == $index">
+
+<div class="form-group">
+                            <span class="input-group col-md-6 clearfix" ng-controller="DatePickerCtrl">
+                                <input class="input-small form-control" ng-change="WatchforChange($index, item)" ng-click="getJobIndex($index, row.entity)" type="text" show-weeks="showWeeks" datepicker-popup="MM/dd/yyyy" is-open="opened" datepicker-options="dateOptions" placeholder="Start Date" ng-model="item.startdate" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </span>
+
+                            <span class="input-group col-md-6 clearfix" ng-controller="DatePickerCtrl">
+                                <input class="input-small form-control" ng-change="WatchforChange($index, item)" ng-click="getJobIndex($index, row.entity)" type="text" show-weeks="showWeeks" datepicker-popup="MM/dd/yyyy" is-open="opened" datepicker-options="dateOptions" placeholder="Due Date" ng-model="item.duedate" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </span>
+</div>
+
+
+                            <!-- <input ng-controller="DatePickerCtrl" class="col-md-2 input-small form-control" ng-change="WatchforChange($index, item)" ng-click="getJobIndex($index, row.entity)" type="text" show-weeks="showWeeks" datepicker-popup="MM/dd/yyyy" open="opened" datepicker-options="dateOptions" placeholder="Start Date" ng-model="item.startdate" /> -->
+                            <!-- <input ng-controller="DatePickerCtrl" class="col-md-2 input-small form-control" ng-change="WatchforChange($index, item)" ng-click="getJobIndex($index, row.entity)" type="text" show-weeks="showWeeks" datepicker-popup="MM/dd/yyyy" open="opened" datepicker-options="dateOptions" placeholder="Due Date" ng-model="item.duedate" /> -->
+
+<div class="form-group">
+                            <div class="col-md-6">
+                                <label class="checkbox-inline" for="checkboxes-0">
+                                  <input type="checkbox" name="checkboxes" id="checkboxes-0" value="sat" ng-model="item.includesaturday" >
+                                  Sat
+                                </label>
+                                <label class="checkbox-inline" for="checkboxes-1">
+                                  <input type="checkbox" name="checkboxes" id="checkboxes-1" value="sun" ng-model="item.includesunday">
+                                  Sun
+                                </label>
+                            </div>
+
+                            <time-entry input-class="input-mini form-control" change-fn="WatchforChange($index, item)" button-class="btn-primary" input-click-fn="getJobIndex($index, row.entity)" button-click-fn="editHours($index, item, thisRow.entity.items[0].value)" icon="fa fa-edit" item="item.hours" input-placeholder="Hours"></time-entry>
+
+                            <!-- <div class="checkbox">
+                                <label class="inline input-mini">
+                                    <input ng-change="WatchforChange($index, item)" type="checkbox" ng-model="item.includesaturday" /> Sat
+                                </label>
+                            </div> -->
+                           <!--  <div class="checkbox">
+                                <label class=" inline input-mini">
+                                    <input ng-change="WatchforChange($index, item)" type="checkbox" ng-model="item.includesunday" /> Sun
+                                </label>
+                            </div> -->
+
+</div>
+
+                            <div class="form-group">
+                              <div class="">
+                                  <select class=" form-control input-medium" ng-click="getJobIndex($index, row.entity)" ng-change="WatchforChange($index, item)" ng-model="item.drafter" ng-options="drafter.UserName for drafter in Drafters"></select>
+                              </div>
+                            </div>
+
+                            <!-- <select class="input-medium" ng-click="getJobIndex($index, row.entity)" ng-change="WatchforChange($index, item)" ng-model="item.drafter" ng-options="drafter.UserName for drafter in Drafters"></select> -->
+
+                        </div>
+                        <div>
+                            <div class="form-inline" ng-show="showEditHours == $index">
+                                <div ng-repeat="item in GetAssignmentDayHoursItems">
+                                    <label class="">{{item.date}}</label>
+                                    <input class="input-micro" type="text" ng-model="item.hours" />
+                                </div>
+                                <div>
+                                <button-ui class="btn btn-primary btn-small" show-button="true" text="Update" active-text="Updating" click-fn="updateHours(GetAssignmentDayHoursItems)" icon="fa fa-upload"></button-ui>
+                                <button type="button" ng-click="cancelUpdateHours($index)" class="btn btn-primary btn-small" >Cancel</button>
+                                </div>
+                                <input type="hidden" ng-model="item.jobedited" />
+                            </div>
+                        </div>
+                        <!-- <input type="hidden" ng-model="item.jobedited" /> -->
+                    </div>
+                </div>
+              </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+
+        <div class="cold-md-12 pad-top-5 pad-bottom-10">
+            <button-ui class="btn btn-primary" type="submit" show-button="true" text="Update" button-disabled="disabled" active-text="Updating" click-fn="UpdateShippedDueDate()" icon="fa fa-upload"></button-ui>
+            <button type="button" ng-click="cancel()" class="btn btn-danger" >Close</button>
+            <!-- <button-ui class="btn btn-warning" show-button="true" text="Reset To Default" button-disabled="disabled" active-text="Working" click-fn="ResetToDefault()" icon="fa fa-refresh"></button-ui> -->
+        </div>
+        <alert ng-repeat="alert in saveAlerts" type="alert.type" autoclose="alert.autoclose" autoclosetime="alert.autoclosetime" close="closeSaveAlert(saveAlerts, $index)">{{alert.msg}}</alert>
+    </div>
+</form>
